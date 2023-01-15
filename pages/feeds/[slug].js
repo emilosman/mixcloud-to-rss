@@ -17,8 +17,8 @@ export async function getServerSideProps({req,res,query}) {
     xml += '<channel>\n';
     xml += '<title>\n' + '<![CDATA[ ' + json['name'] + ' ]]>' + '</title>\n';
     xml += '<description>\n' + '<![CDATA[ ' + json['name'] + ' ]]>' + '</description>\n';
-    xml += '<link>\n' + 'https://mixcloud.com' + '</link>\n';
-    xml += '<atom:link href="https://mixcloud.com" rel="self" type="application/rss+xml" />\n';
+    xml += '<link>\n' + 'https://mixcloud.com/' + slug + '</link>\n';
+    xml += '<atom:link href="https://mixcloud.com/' + slug + '" rel="self" type="application/rss+xml" />\n';
     for (let key in filteredData) {
       if (filteredData.hasOwnProperty(key)) {
         const pubDate = new Date( filteredData[key].created_time ).toUTCString();
@@ -26,8 +26,8 @@ export async function getServerSideProps({req,res,query}) {
         xml += '<title>\n' + '<![CDATA[ ' + filteredData[key].cloudcasts[0].name + ' ]]>' + '</title>\n';
         xml += '<description>\n' + filteredData[key].cloudcasts[0].name + '</description>\n';
         xml += '<pubDate>\n' + pubDate + '</pubDate>\n';
-        xml += '<link>\n' + filteredData[key].url + '</link>\n';
-        xml += '<guid isPermaLink="true">\n' + filteredData[key].url + '</guid>\n';
+        xml += '<link>\n' + filteredData[key].cloudcasts[0].url + '</link>\n';
+        xml += '<guid isPermaLink="true">\n' + filteredData[key].cloudcasts[0].url + '</guid>\n';
         xml += '</item>\n';
       }
     }
