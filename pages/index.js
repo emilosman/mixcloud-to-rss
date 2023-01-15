@@ -11,9 +11,11 @@ export default function Home() {
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <label htmlFor="username">Enter the Mixcloud username</label>
+        <h1> Mixcloud to RSS</h1>
+        <label htmlFor="username">Enter a Mixcloud username below:</label>
         <input type="text" id="username" name="username" required  placeholder='example: hobocan'/>
         <button type="submit">Submit</button>
+        <a href="https://github.com/emilosman/mixcloud-to-rss">github</a>
       </form>
     </>
   )
