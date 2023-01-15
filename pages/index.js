@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label htmlFor="username">Enter the Mixcloud username</label>
-        <input type="text" id="username" name="username" required />
+        <input type="text" id="username" name="username" required  placeholder='example: hobocan'/>
         <button type="submit">Submit</button>
       </form>
     </>
